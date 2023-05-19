@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>jQueryカウンター</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <div>
+    <h1 id="count-100">100</h1>
+    <h1 id="count-60">60</h1>
+    <button id="decrement-random-1">こうげき</button>
+    <button id="decrement-random-2">まほう</button>
+    <button id="decrement-random-3">まもる</button>
+    <p id="message"></p>
+  </div>
+  <script>
+    $(document).ready(function() {
+      $('#decrement-random-1').click(function() {
+        decrement(getRandomCountSelector());
+      });
+
+      $('#decrement-random-2').click(function() {
+        decrement(getRandomCountSelector());
+      });
+
+      $('#decrement-random-3').click(function() {
+        decrement(getRandomCountSelector());
+      });
+
+      function decrement(selector) {
+        var count = parseInt($(selector).text());
+        var message = '';
+        var randomResult = Math.floor(Math.random() * 3); // 0から2までの乱数を生成する
+        switch (randomResult) {
+          case 0:
+            count -= 10;
+            message = '10減りました';
+            break;
+          case 1:
+            count += 5;
+            message = '5増えました';
+            break;
+          case 2:
+            message = '数値は変わりませんでした';
+            break;
+        }
+        $(selector).text(count);
+        $('#message').text(message);
+      }
+
+      function getRandomCountSelector() {
+        var randomCount = Math.random() < 0.5 ? '#count-100' : '#count-60'; // 50%の確率でどちらかの数値を減らす
+        return randomCount;
+      }
+    });
+  </script>
+</body>
+</html>

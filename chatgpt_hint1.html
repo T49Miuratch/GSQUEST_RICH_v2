@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>jQueryカウンター</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <div>
+    <h1 id="count">100</h1>
+    <button id="decrement-10">10減らす</button>
+    <button id="decrement-15">15減らす</button>
+    <button id="decrement-20">20減らす</button>
+  </div>
+  <script>
+    $(document).ready(function() {
+      $('#decrement-10').click(function() {
+        decrementCount(10);
+      });
+      $('#decrement-15').click(function() {
+        decrementCount(15);
+      });
+      $('#decrement-20').click(function() {
+        decrementCount(20);
+      });
+      function decrementCount(amount) {
+        var count = parseInt($('#count').text());
+        count -= amount;
+        $('#count').text(count);
+      }
+    });
+  </script>
+</body>
+</html>

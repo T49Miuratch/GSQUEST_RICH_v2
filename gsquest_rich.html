@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>［リッチ版］Ｇ＇ｓ ＱＵＥＳＴ</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&family=Dela+Gothic+One&family=DotGothic16&family=RocknRoll+One&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">    <title>G's Quest</title>
+</head>
+<body>
+
+<h1 class="gametitle">［リッチ版］Ｇ＇ｓ ＱＵＥＳＴ</h1>
+<h2>ジーズクエスト</h2>
+
+<div class="boss"><img src="img/dotmonster_1.png" id="bossface"></div>
+<div class="attack_effect" id="attackimg"><img src="img/attack.png"></div>
+<div class="magic_effect" id="fireimg"><img src="img/fire.png"></div>
+<div class="guard_effect" id="shieldimg"><img src="img/shield.png"></div>
+
+<div class="minitextboard">MONSTER HP<br>
+    <span class="monsterhp" id="monsterhp">100</span></div>
+
+<div class="minitextboard2">PLAYER HP<br>
+    <span class="playerhp" id="playerhp">60</span></div>
+    
+<div class="textboard">
+<div class="commandtext" id="command_t">
+    モンスターがあらわれた！ コマンド？
+</div>
+
+<div class="result_text" id="result_t">
+
+</div>
+
+
+</div>
+
+
+<div class="manual">
+    以下からコマンドボタンを押そう。モンスターも同じく「こうげき」「まほう」「まもる」をつかうぞ。
+    「こうげき」は「まもる」によわく、「まもる」は「まほう」によわく、「まほう」は「こうげき」によわい。
+    モンスターのうごきをよんで、やっつけろ！</div>
+
+    <div class="controller">
+    <button class="attack" type="button" id="attack_btn">こうげき</button>
+<button class="magic" type="button" id="magic_btn">まほう</button>
+<button class="guard" type="button" id="guard_btn">まもる</button>
+</div>
+
+<!-- 音楽を鳴らす -->
+<div class="controller">
+<audio src="music/maou_bgm_8bit18.wav" id="audio" pause="pause" loop="loop"></audio>
+<button id="btnmusic" type="button" class="musicbtn">MUSIC ON/OFF</button></div>
+<!-- 音楽を鳴らす -->
+
+<div class="footer">
+    ©copyrights 2003-<script type="text/javascript">myDate = new Date() ;myYear = myDate.getFullYear ();document.write(myYear);</script>
+    Fujimani Publishing All Rights Reserved.
+</div>
+
+<!-- jQueryのライブラリを読み込む -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- JavaScriptのコードを読み込む -->
+<script src="js/gsquestjs_rich.js"></script>
+
+</body>
+</html>

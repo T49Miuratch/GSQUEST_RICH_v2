@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>jQueryカウンター</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <div>
+    <h1 id="count">100</h1>
+    <button id="decrement-10">10減らす</button>
+    <p id="message"></p>
+  </div>
+  <script>
+    $(document).ready(function() {
+      $('#decrement-10').click(function() {
+        var count = parseInt($('#count').text());
+        var message = '';
+        var randomResult = Math.floor(Math.random() * 3); // 0から2までの乱数を生成する
+        switch (randomResult) {
+          case 0:
+            count -= 10;
+            message = '10減りました';
+            break;
+          case 1:
+            count += 5;
+            message = '5増えました';
+            break;
+          case 2:
+            message = '数値は変わりませんでした';
+            break;
+        }
+        $('#count').text(count);
+        $('#message').text(message);
+      });
+    });
+  </script>
+</body>
+</html>

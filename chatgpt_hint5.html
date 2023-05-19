@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Battle</title>
+</head>
+<body>
+
+	<div>
+		<h1>Battle</h1>
+		<p>モンスターのHP: <span id="monster-hp">100</span></p>
+		<button id="attack">こうげき</button>
+		<button id="magic">まほう</button>
+		<button id="defend">まもる</button>
+		<p id="message"></p>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+	$(function() {
+		
+		$('#attack').click(function() {
+			var result = Math.floor(Math.random() * 3);
+			if(result === 0) {
+				$('#monster-hp').text(function(i, old) {
+					var newHp = parseInt(old) - 20;
+					return newHp < 0 ? 0 : newHp;
+				});
+				$('#message').text('モンスターに　クリティカルヒット！');
+			} else if(result === 1) {
+				$('#message').text('カウンター　こうげきを　くらった！');
+			} else {
+				$('#message').text('モンスターが　ヒラリと　かわした！');
+			}
+		});
+
+		$('#magic').click(function() {
+			var result = Math.floor(Math.random() * 3);
+			if(result === 0) {
+					$('#monster-hp').text(function(i, old) {
+						var newHp = parseInt(old) - 20;
+						return newHp < 0 ? 0 : newHp;
+					});
+				$('#message').text('モンスターは　ほのおに　つつまれた！');
+			} else if(result === 1) {
+				$('#message').text('モンスターが　まほうを　うちけした！');
+			} else {
+				$('#message').text('モンスターに　まほうを　はねかえされた！');
+			}
+		});
+
+		$('#defend').click(function() {
+			var result = Math.floor(Math.random() * 3);
+			if(result === 0) {
+				$('#message').text('モンスターは　まもりに　はじかれた！');
+			} else if(result === 1) {
+					$('#monster-hp').text(function(i, old) {
+						var newHp = parseInt(old) - 20;
+						return newHp < 0 ? 0 : newHp;
+					});
+				$('#message').text('まもりのスキに　しょじきんを　スラれた！');
+			} else {
+				$('#message').text('モンスターも　まもりにはいっている');
+			}
+		});
+		
+	});
+	</script>
+
+</body>
+</html>

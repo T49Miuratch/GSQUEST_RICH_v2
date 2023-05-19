@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>モンスターとの戦闘</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+	<h1>モンスターとの戦闘</h1>
+	<p>プレイヤーのHP: <span id="player-hp">60</span></p>
+	<p>モンスターのHP: <span id="monster-hp">100</span></p>
+	<button id="attack">こうげき</button>
+	<button id="magic">まほう</button>
+	<button id="defend">まもる</button>
+	<p id="message"></p>
+	<script>
+		// 初期値設定
+		var playerHp = 60;
+		var monsterHp = 100;
+
+		// ボタンをクリックしたときの処理
+		$('#attack, #magic, #defend').on('click', function() {
+			var id = $(this).attr('id'); // 押されたボタンのIDを取得
+			var result, message;
+
+			// 押されたボタンに応じて処理を分岐
+			switch (id) {
+				case 'attack':
+					// こうげき
+					var rand = Math.random(); // 0以上1未満のランダムな数値を生成
+					if (rand < 0.5) {
+						monsterHp -= 20;
+						message = 'モンスターに　クリティカルヒット！';
+					} else if (rand < 0.8) {
+						monsterHp -= 0;
+						message = 'モンスターが　ヒラリと　かわした！';
+					} else {
+						playerHp -= 20;
+						message = 'カウンター　こうげきを　くらった！';
+					}
+					break;
+				case 'magic':
+					// まほう
+					var rand = Math.random(); // 0以上1未満のランダムな数値を生成
+					if (rand < 0.5) {
+						monsterHp -= 20;
+						message = 'モンスターは　ほのおに　つつまれた！';
+					} else if (rand < 0.8) {
+						monsterHp -= 0;
+						message = 'モンスターに　まほうを　はねかえされた！';
+					} else {
+						playerHp -= 20;
+						message = 'モンスターが　まほうを　うちけした！';
+					}
+					break;
+				case 'defend':
+					// まもる
+					var rand = Math.random(); // 0以上1未満のランダムな数値を生成
+					if (rand < 0.5) {
+						message = 'まもりの　スキに　おかねをぬすまれた';
+                    } else if (rand < 0.8) {
+						monsterHp -= 0;
+						message = 'モンスターに　まもりに　はいっている';
+					} else {
+						playerHp -= 20;
+						message = 'モンスターが　まもりに　ふきとばされた！';
+					}
+					break;
+                }
+            });
+
+// HPが0以下になった場合の処理
+if (playerHp <= 0) {
+				result = 'lose';
+			} else if (monsterHp <= 0) {
+				result = 'win';
+			}
+
+			// HPとメッセージを表示
+			$('#player-hp').text(playerHp);
+			$('#monster-hp').text(monsterHp);
+			$('#message').text(message);
+
+			// 結果が出た場合の処理
+			if (result) {
+				switch (result) {
+					case 'win':
+						$('#message').text('モンスターを　たおした！　やったね！');
+						$('#attack, #magic, #defend').prop('disabled', true); // ボタンを無効化
+						break;
+					case 'lose':
+						$('#message').text('あなたは　しんでしまった…　がんばろう！');
+						$('#attack, #magic, #defend').prop('disabled', true); // ボタンを無効化
+						break;
+				}
+			}
+		;
+	</script>
+
+</body>
+</html>
