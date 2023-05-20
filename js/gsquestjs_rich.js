@@ -82,6 +82,7 @@ if(comp == 1 ){
 }else if(comp == 2 ){
     $("#command_t").text("モンスターに　クリティカルヒット！");
     var sound = new Audio('se/attack.wav');sound.play();
+    var sound = new Audio('se/nakigoe.wav');sound.play();
     $('.boss').children('img').attr('src', 'img/dotmonster_3.png');
     $("#result_t").text("だいダメージを　あたえた！");
     $("#attackimg img").show('slow');
@@ -148,6 +149,7 @@ if(comp == 1 ){
 }else if(comp == 2 ){
     $("#command_t").text("モンスターの　ニガテなまほう　だった！");
     var sound = new Audio('se/magic.wav');sound.play();
+    var sound = new Audio('se/nakigoe.wav');sound.play();
     $('.boss').children('img').attr('src', 'img/dotmonster_3.png');
     $("#result_t").text("だいダメージを　あたえた！");
     $("#magicimg img").show('slow');
@@ -162,6 +164,7 @@ if(comp == 1 ){
 
 }else if(comp == 3 ){
     $("#command_t").text("モンスターに　まほうを　はねかえされた！");
+    var sound = new Audio('se/magic.wav');sound.play();
     var sound = new Audio('se/himei.wav');sound.play();
     $('.boss').children('img').attr('src', 'img/dotmonster_6.png');
     $("#result_t").text("プレイヤーが　ほのおに　つつまれる！");
@@ -225,7 +228,7 @@ $(function(){
 });
 
 */
-
+/*
 $(".guard").on("click", function (){
     $(".commandtext").html("プレイヤーは　まもりを　かためた！");
         //ゆらす記述ここから
@@ -268,6 +271,76 @@ $(function(){
 },0500);
     console.log("まもるうごいた");
 });
+*/
+
+//「ガード」ここから
+
+$(".guard").on("click", function (){
+    $("#command_t").html("プレイヤーは　ガードを　かためた");
+    setTimeout(function(){
+        $('html').css('background-color','red')
+        $('html').css('background-color','#1e2e35',500)});
+        var sound = new Audio('se/gokaku.wav');sound.play();
+
+        //ゆらす記述ここから
+        $(this).css("animation", "guard 0.3s");
+        var copied = $(this).clone(true);
+        $(this).before(copied);
+        $("." + $(this).attr("class") + ":last").remove();
+        //ゆらす記述ここまで
+
+//アクション記述ここから
+
+    var comp = Math.floor(Math.random()*3+1 );
+    
+if(comp == 1 ){
+    $("#command_t").text("モンスターも　まもりに　はいっている！");
+    var sound = new Audio('se/miss.wav');sound.play();
+    $('.boss').children('img').attr('src', 'img/dotmonster_9.png');
+    $("#result_t").text("おたがい　なんだか　にがわらい！");
+
+    setTimeout(function(){
+        $('.boss').children('img').attr('src', 'img/dotmonster_1.png');
+    },1500);
+    
+}else if(comp == 2 ){
+    $("#command_t").text("モンスターは　まもりに　はじかれた！");
+    var sound = new Audio('se/taoreru.wav');sound.play();
+    var sound = new Audio('se/nakigoe.wav');sound.play();
+    $('.boss').children('img').attr('src', 'img/dotmonster_8.png');
+    $("#result_t").text("すべってころんで　モンスターおおケガ！");
+    $("#guardimg img").show('slow');
+    $("#guardimg img").hide('fast');
+    var value3 = parseInt(num2.text()); // 現在の値を取得（文字列なので数値に変換）
+    value3 -= 12; // 値を減らす
+    num2.text(value3); // 数字要素1の値を更新する
+
+    setTimeout(function(){
+        $('.boss').children('img').attr('src', 'img/dotmonster_1.png');
+    },1500);
+
+}else if(comp == 3 ){
+    $("#command_t").text("ガードのスキに　しょじきんを　スラれた！");
+    var sound = new Audio('se/cheenmoney.wav');sound.play();
+    var sound = new Audio('se/himei.wav');sound.play();
+    $('.boss').children('img').attr('src', 'img/dotmonster_10.png');
+    $("#result_t").text("プレイヤーの　さいふが　ひのくるま！");
+    var value4 = parseInt(num1.text()); // 現在の値を取得（文字列なので数値に変換）
+    value4 -= 12; // 値を減らす
+    num1.text(value4); // 数字要素2の値を更新する
+
+//アクション記述ここまで
+
+    setTimeout(function(){
+    $('.boss').children('img').attr('src', 'img/dotmonster_1.png');
+},1500);
+
+    console.log("ガードうごいた");
+}
+});
+
+//「ガード」ここまで
+
 
 /*
 $(function(){
