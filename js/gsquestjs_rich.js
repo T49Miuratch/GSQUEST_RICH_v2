@@ -138,7 +138,7 @@ $(".magic").on("click", function (){
     
 if(comp == 1 ){
     $("#command_t").text("モンスターに　まほうを　かきけされた！");
-    var sound = new Audio('se/miss.wav');sound.play();
+    var sound = new Audio('se/taoreru.wav');sound.play();
     $('.boss').children('img').attr('src', 'img/dotmonster_4.png');
     $("#result_t").text("ムズカシイ　まほうを　となえぞん！");
 
@@ -295,25 +295,25 @@ $(".guard").on("click", function (){
     
 if(comp == 1 ){
     $("#command_t").text("モンスターも　まもりに　はいっている！");
-    var sound = new Audio('se/miss.wav');sound.play();
     $('.boss').children('img').attr('src', 'img/dotmonster_9.png');
     $("#result_t").text("おたがい　なんだか　にがわらい！");
-
+    var sound = new Audio('se/shine.wav');sound.play();
     setTimeout(function(){
         $('.boss').children('img').attr('src', 'img/dotmonster_1.png');
     },1500);
     
 }else if(comp == 2 ){
     $("#command_t").text("モンスターは　まもりに　はじかれた！");
+    var sound = new Audio('se/guard.wav');sound.play();
     var sound = new Audio('se/taoreru.wav');sound.play();
     var sound = new Audio('se/nakigoe.wav');sound.play();
     $('.boss').children('img').attr('src', 'img/dotmonster_8.png');
     $("#result_t").text("すべってころんで　モンスターおおケガ！");
     $("#guardimg img").show('slow');
     $("#guardimg img").hide('fast');
-    var value3 = parseInt(num2.text()); // 現在の値を取得（文字列なので数値に変換）
-    value3 -= 12; // 値を減らす
-    num2.text(value3); // 数字要素1の値を更新する
+    var value5 = parseInt(num2.text()); // 現在の値を取得（文字列なので数値に変換）
+    value5 -= 22; // 値を減らす
+    num2.text(value5); // 数字要素1の値を更新する
 
     setTimeout(function(){
         $('.boss').children('img').attr('src', 'img/dotmonster_1.png');
@@ -321,13 +321,13 @@ if(comp == 1 ){
 
 }else if(comp == 3 ){
     $("#command_t").text("ガードのスキに　しょじきんを　スラれた！");
-    var sound = new Audio('se/cheenmoney.wav');sound.play();
+    var sound = new Audio('se/regi.wav');sound.play();
     var sound = new Audio('se/himei.wav');sound.play();
     $('.boss').children('img').attr('src', 'img/dotmonster_10.png');
     $("#result_t").text("プレイヤーの　さいふが　ひのくるま！");
-    var value4 = parseInt(num1.text()); // 現在の値を取得（文字列なので数値に変換）
-    value4 -= 12; // 値を減らす
-    num1.text(value4); // 数字要素2の値を更新する
+    var value6 = parseInt(num1.text()); // 現在の値を取得（文字列なので数値に変換）
+    value6 -= 12; // 値を減らす
+    num1.text(value6); // 数字要素2の値を更新する
 
 //アクション記述ここまで
 
@@ -336,10 +336,25 @@ if(comp == 1 ){
 },1500);
 
     console.log("ガードうごいた");
+
 }
 });
 
 //「ガード」ここまで
+
+//モンスターHP0
+
+/*
+if(num2 <= 0 ){
+    $("#command_t").text("モンスターは　おとをたてて　たおれた！");
+    $('.boss').children('img').attr('src', 'img/dotmonster_dead.png');
+    $("#result_t").text("JavaScriptを　かんぜんにりかいした！");
+    var sound = new Audio('se/congra1.wav');sound.play();
+    var sound = new Audio('se/donpafu.wav');sound.play();
+};
+*/
+
+//プレイヤーHP0
 
 
 /*
