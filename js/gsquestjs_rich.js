@@ -1,4 +1,17 @@
-//音楽を制御
+//オープニングモーダル
+$(function () {
+window.onload = function() {
+
+    var audio = $("#audio").get(0);
+	var isPlaying = false;
+    
+    console.log("ページが読み込まれました！");
+    
+    $("#guardimg img").show('slow');
+}
+});
+
+// 音楽を制御
 $(function () {
 	var audio = $("#audio").get(0);
 	var isPlaying = false;
@@ -16,7 +29,6 @@ $(function () {
 		isPlaying = false;
 	};
 });
-//音楽を制御
 
 // HTML要素をjQueryオブジェクトとして変数に代入
 var num1 = $("#playerhp"); // 60を表示する要素
@@ -163,7 +175,7 @@ if(comp == 1 ){
     },1500);
 
 }else if(comp == 3 ){
-    $("#command_t").text("モンスターに　まほうを　はねかえされた！");
+    $("#command_t").text("モンスターが　まほうを　はねかえす！");
     var sound = new Audio('se/magic.wav');sound.play();
     var sound = new Audio('se/himei.wav');sound.play();
     $('.boss').children('img').attr('src', 'img/dotmonster_6.png');
