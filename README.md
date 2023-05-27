@@ -44,4 +44,5 @@ https://nekton.life/GSACADEMY/gsquest_rich.html
   
 ## 参考にした web サイトなど
 
+  https://deco8.net/jquery-modal-window-movie/
 bing AI
