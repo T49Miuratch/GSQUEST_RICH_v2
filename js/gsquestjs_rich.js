@@ -1,21 +1,39 @@
 //オープニングモーダル
-$(function () {
-window.onload = function() {
 
-    var audio = $("#audio").get(0);
-	var isPlaying = false;
-    
-    console.log("ページが読み込まれました！");
-    
-    $("#guardimg img").show('slow');
-}
-});
+$(function(){
+    window.onload = function(){
+    $('.modal').fadeIn();
+    return false;
+    }
 
-// 音楽を制御
+    $('.start-btn').on('click',function(){
+        let audio = $("#audio").get(0);
+        let isPlaying = false;
+		if (isPlaying) {
+			audio.pause();
+		} else {
+			audio.play();
+		}
+    $('.modal').fadeOut(
+        console.log("フェードアウト動いた")
+)
+return false;});
+
+    $('.start-btn-silent').on('click',function(){
+    $('.modal').fadeOut(
+
+        console.log("フェードアウトサイレント動いた")
+
+    )});
+
+return false;});
+
+// 音楽を制御するフッター近くのボタン
+
 $(function () {
-	var audio = $("#audio").get(0);
-	var isPlaying = false;
-	$("#btnmusic").on("click", function () {
+	let audio = $("#audio").get(0);
+	let isPlaying = false;
+	$("#btnmusic-b").on("click", function () {
 		if (isPlaying) {
 			audio.pause();
 		} else {
