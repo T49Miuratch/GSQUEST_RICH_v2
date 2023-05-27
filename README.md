@@ -2,7 +2,9 @@
 ## https://github.com/T49Miuratch/GS_QUEST2_RICH_v2
 
   - デプロイしている場合はURLを記入（任意）
-<h1><a href="https://nekton.life/GSACADEMY/gsquest_rich.html">G's QUEST リッチ版</a></h1>
+
+https://nekton.life/GSACADEMY/gsquest_rich.html
+
 デプロイしたよ！
 
 ## 紹介と使い方
