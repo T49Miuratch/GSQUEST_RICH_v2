@@ -46,3 +46,9 @@ https://nekton.life/GSACADEMY/gsquest_rich.html
 
   https://deco8.net/jquery-modal-window-movie/
 bing AI
+  
+  https://blog.katsubemakito.net/html5/audio1
+  
+  https://freelance-jak.com/technology/javascript/1140/
+  
+  https://nplll.com/2019/11/javascript-audio-play-once/
