@@ -67,6 +67,7 @@ function randomInt(min, max) {
 console.log("ここまで動いた2")
 
 // 数字を減らす関数
+/*
 function decreaseNum(num, array) {
     // 引数numはjQueryオブジェクト、arrayは減らす値の配列
     var value = parseInt(num.text()); // 現在の値を取得
@@ -78,6 +79,7 @@ function decreaseNum(num, array) {
     }
     num.text(value); // 値を更新
 }
+*/
 
 //「こうげき」ここから
 
@@ -103,6 +105,8 @@ if(comp == 1 ){
     $("#command_t").text("モンスターが　ヒラリと　かわした！");
     var sound = new Audio('se/miss.wav');sound.play();
     $('.boss').children('img').attr('src', 'img/dotmonster_5.png');
+    $("#attackimg img").show('slow');
+    $("#attackimg img").hide('fast');
     $("#result_t").text("ダメージを　あたえられない！");
 
     setTimeout(function(){
@@ -114,12 +118,21 @@ if(comp == 1 ){
     var sound = new Audio('se/attack.wav');sound.play();
     var sound = new Audio('se/nakigoe.wav');sound.play();
     $('.boss').children('img').attr('src', 'img/dotmonster_3.png');
-    $("#result_t").text("だいダメージを　あたえた！");
     $("#attackimg img").show('slow');
     $("#attackimg img").hide('fast');
+    $("#result_t").text("だいダメージを　あたえた！");
     var value1 = parseInt(num2.text()); // 現在の値を取得（文字列なので数値に変換）
     value1 -= 20; // 値を減らす
     num2.text(value1); // 数字要素1の値を更新する
+
+    if (value1 <= 0) { // 値が0以下になったら
+        value1 = 0; // 値を0にする
+        console.log("こうげき0になった動いた")
+        $('.modal-ending').fadeIn();
+        audio.pause();
+        var sound = new Audio('se/congra1.wav');sound.play();
+        return false;
+    };
 
     setTimeout(function(){
         $('.boss').children('img').attr('src', 'img/dotmonster_1.png');
@@ -129,12 +142,21 @@ if(comp == 1 ){
     $("#command_t").text("カウンター　こうげきを　くらった！");
     var sound = new Audio('se/himei.wav');sound.play();
     $('.boss').children('img').attr('src', 'img/dotmonster_6.png');
+    $("#attackimg img").show('slow');
+    $("#attackimg img").hide('fast');
     $("#result_t").text("しょうげきで　あたまがクラクラする！");
     var value2 = parseInt(num1.text()); // 現在の値を取得（文字列なので数値に変換）
     value2 -= 15; // 値を減らす
     num1.text(value2); // 数字要素2の値を更新する
 
-//アクション記述ここまで
+if (value2 <= 0) { // 値が0以下になったら
+    value2 = 0; // 値を0にする
+    console.log("クラクラになった動いた")
+    $('.modal-loseing').fadeIn();
+    audio.pause();
+    var sound = new Audio('se/fukyowa.wav');sound.play();
+    return false;
+};
 
     setTimeout(function(){
     $('.boss').children('img').attr('src', 'img/dotmonster_1.png');
@@ -170,8 +192,9 @@ if(comp == 1 ){
     $("#command_t").text("モンスターに　まほうを　かきけされた！");
     var sound = new Audio('se/taoreru.wav');sound.play();
     $('.boss').children('img').attr('src', 'img/dotmonster_4.png');
+    $("#magicimg img").show('slow');
+    $("#magicimg img").hide('fast');
     $("#result_t").text("ムズカシイ　まほうを　となえぞん！");
-
     setTimeout(function(){
         $('.boss').children('img').attr('src', 'img/dotmonster_2.png');
     },1500);
@@ -181,12 +204,21 @@ if(comp == 1 ){
     var sound = new Audio('se/magic.wav');sound.play();
     var sound = new Audio('se/nakigoe.wav');sound.play();
     $('.boss').children('img').attr('src', 'img/dotmonster_3.png');
-    $("#result_t").text("だいダメージを　あたえた！");
     $("#magicimg img").show('slow');
     $("#magicimg img").hide('fast');
+    $("#result_t").text("だいダメージを　あたえた！");
     var value3 = parseInt(num2.text()); // 現在の値を取得（文字列なので数値に変換）
     value3 -= 22; // 値を減らす
     num2.text(value3); // 数字要素1の値を更新する
+
+    if (value3 <= 0) { // 値が0以下になったら
+        value3 = 0; // 値を0にする
+        console.log("まほう0になった動いた")
+        $('.modal-ending').fadeIn();
+        audio.pause();
+        var sound = new Audio('se/congra1.wav');sound.play();
+        return false;
+    };
 
     setTimeout(function(){
         $('.boss').children('img').attr('src', 'img/dotmonster_1.png');
@@ -197,10 +229,22 @@ if(comp == 1 ){
     var sound = new Audio('se/magic.wav');sound.play();
     var sound = new Audio('se/himei.wav');sound.play();
     $('.boss').children('img').attr('src', 'img/dotmonster_6.png');
+    $("#magicimg img").show('slow');
+    $("#magicimg img").hide('fast');
     $("#result_t").text("プレイヤーが　ほのおに　つつまれる！");
     var value4 = parseInt(num1.text()); // 現在の値を取得（文字列なので数値に変換）
     value4 -= 17; // 値を減らす
     num1.text(value4); // 数字要素2の値を更新する
+
+    if (value4 <= 0) { // 値が0以下になったら
+        value4 = 0; // 値を0にする
+        console.log("クラクラになった動いた")
+        $('.modal-loseing').fadeIn();
+        audio.pause();
+        var sound = new Audio('se/fukyowa.wav');sound.play();
+        return false;
+    };
+    
 
 //アクション記述ここまで
 
@@ -326,6 +370,8 @@ $(".guard").on("click", function (){
 if(comp == 1 ){
     $("#command_t").text("モンスターも　まもりに　はいっている！");
     $('.boss').children('img').attr('src', 'img/dotmonster_9.png');
+    $("#guardimg img").show('slow');
+    $("#guardimg img").hide('fast');
     $("#result_t").text("おたがい　なんだか　にがわらい！");
     var sound = new Audio('se/shine.wav');sound.play();
     setTimeout(function(){
@@ -338,12 +384,21 @@ if(comp == 1 ){
     var sound = new Audio('se/taoreru.wav');sound.play();
     var sound = new Audio('se/nakigoe.wav');sound.play();
     $('.boss').children('img').attr('src', 'img/dotmonster_8.png');
-    $("#result_t").text("すべってころんで　モンスターおおケガ！");
     $("#guardimg img").show('slow');
     $("#guardimg img").hide('fast');
+    $("#result_t").text("すべってころんで　モンスターおおケガ！");
     var value5 = parseInt(num2.text()); // 現在の値を取得（文字列なので数値に変換）
     value5 -= 22; // 値を減らす
     num2.text(value5); // 数字要素1の値を更新する
+
+    if (value5 <= 0) { // 値が0以下になったら
+        value5 = 0; // 値を0にする
+        console.log("まもり0になった動いた")
+        $('.modal-ending').fadeIn();
+        audio.pause();
+        var sound = new Audio('se/congra1.wav');sound.play();
+        return false;
+    };
 
     setTimeout(function(){
         $('.boss').children('img').attr('src', 'img/dotmonster_1.png');
@@ -354,10 +409,22 @@ if(comp == 1 ){
     var sound = new Audio('se/regi.wav');sound.play();
     var sound = new Audio('se/himei.wav');sound.play();
     $('.boss').children('img').attr('src', 'img/dotmonster_10.png');
+    $("#guardimg img").show('slow');
+    $("#guardimg img").hide('fast');
     $("#result_t").text("プレイヤーの　さいふが　ひのくるま！");
     var value6 = parseInt(num1.text()); // 現在の値を取得（文字列なので数値に変換）
     value6 -= 12; // 値を減らす
     num1.text(value6); // 数字要素2の値を更新する
+
+    if (value6 <= 0) { // 値が0以下になったら
+        value6 = 0; // 値を0にする
+        console.log("まもりやられた動いた")
+        $('.modal-loseing').fadeIn();
+        audio.pause();
+        var sound = new Audio('se/fukyowa.wav');sound.play();
+        return false;
+    };
+    
 
 //アクション記述ここまで
 
