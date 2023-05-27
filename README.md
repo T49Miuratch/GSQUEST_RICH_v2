@@ -2,6 +2,8 @@
 ## https://github.com/T49Miuratch/GS_QUEST2_RICH_v2
 
   - デプロイしている場合はURLを記入（任意）
+<h1>http://nekton.life/GSACADEMY/gsquest_rich.html</h1>
+デプロイしたよ！
 
 ## 紹介と使い方
 「じゃんけん」をドラクエ風のゲームにしたいと思い改造しました。
